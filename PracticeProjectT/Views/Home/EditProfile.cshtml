@@ -1,0 +1,78 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Edit Page";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="offset-sm-2 col-sm-8">
+        <div class="card mt-4">
+            <div class="card-header">
+                Update Profile
+            </div>
+            <div class="card-body">
+               <form asp-controller="Home" asp-action="EditProfile" method="post">
+                    <div class="form-group mb-3">
+        <label asp-for="FullName">Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+                    <div class="form-group mb-3">
+        <label asp-for="CellPhone">CellPhone</label>
+        <input asp-for="CellPhone" class="form-control" />
+        <span asp-validation-for="CellPhone" class="text-danger"></span>
+    </div>
+
+                    <div class="form-group mb-3">
+        <label asp-for="Qualification">Qualification</label>
+        <input asp-for="Qualification" class="form-control" />
+        <span asp-validation-for="Qualification" class="text-danger"></span>
+    </div>
+
+                    <div class="form-group mb-3">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+                    <div class="form-group mb-3">
+        <label asp-for="Experience">Experience</label>
+                             <select asp-for="Experience" class="form-select form-select-sm" aria-label="Default select">
+                                                                <option selected disabled>Select One</option>
+                                                                <option value="0">0</option>
+                                                <option value="1+">1+</option>
+                                                                <option value="2+">2+</option>
+                                                                <option value="3+">3+</option>
+                                                                <option value="4+">4+</option>
+                                                            </select>
+        <span asp-validation-for="Experience" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Availability">Availability</label>
+                        <select asp-for="Availability" class="form-select form-select-sm" aria-label="Default select">
+                            <option selected disabled>Select One</option>
+                            <option value="Immediately">Immediately</option>
+                            <option value="1 Week Notice">1 Week Notice</option>
+                            <option value="2 Weeks Notice">2 Weeks Notice</option>
+                            <option value="3 Weeks Notice">3 Weeks Notice</option>
+                            <option value="4 Weeks Notice">4 Weeks Notice</option>
+                        </select>
+        <span asp-validation-for="Availability" class="text-danger"></span>
+    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="UniversityName">University Name</label>
+                        <input asp-for="UniversityName" class="form-control" />
+                        <span asp-validation-for="UniversityName" class="text-danger"></span>
+                    </div>
+
+    <button type="submit" class="btn btn-dark btn-sm mt-4 w-100">Save Changes</button>
+</form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

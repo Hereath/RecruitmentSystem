@@ -1,0 +1,24 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Delete Page";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="offset-sm-2 col-sm-8">
+        <div class="card mt-4">
+            <div class="card-header">
+                Delete Profile
+            </div>
+            <div class="card-body">
+                <p>Are you sure you want to delete your profile? This action cannot be undone.</p>
+
+                <form asp-controller="Home" asp-action="DeleteProfileConfirmed" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

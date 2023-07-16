@@ -1,0 +1,246 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Recruiting App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/PracticeWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+            width: 100%;
+            padding-left: 0;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <section class="vh-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 px-0 d-none d-sm-block">
+                        <img src="https://plus.unsplash.com/premium_photo-1677020308262-4f150d263a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                             alt="Login image"
+                             class="w-100 vh-100"
+                             style="object-fit: cover; object-position: left" />
+                    </div>
+
+                    <div class="col-sm-6 text-black">
+                        <h6 class="text-center">Register</h6>
+                        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-2 pt-5 pt-xl-0 mt-xl-n5">
+
+                            <form class="w-100" asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="FullName" class="form-label col-form-label-sm">Full Name</label>
+                                            <input asp-for="FullName" class="form-control form-control-sm" />
+                                            <span asp-validation-for="FullName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="Email" class="form-label col-form-label-sm">Email</label>
+                                            <input asp-for="Email" class="form-control form-control-sm" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="CellPhone" class="form-label col-form-label-sm">CellPhone</label>
+                                            <input asp-for="CellPhone" class="form-control form-control-sm" />
+                                            <span asp-validation-for="CellPhone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="Password" class="form-label col-form-label-sm">Password</label>
+                                            <input asp-for="Password" class="form-control form-control-sm" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="ConfirmPassword" class="form-label col-form-label-sm">Confirm Password</label>
+                                            <input asp-for="ConfirmPassword" class="form-control form-control-sm" />
+                                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="UserType" class="form-label col-form-label-sm">User Type</label>
+                                            <select asp-for="UserType" class="form-select form-select-sm" id="userTypeSelect">
+                                                <option value="JobSeeker">Job Seeker</option>
+                                                <option value="Employer">Employer</option>
+                                            </select>
+                                            <span asp-validation-for="UserType" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="EmployerFields">
+                                    <div class="row">
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group mb-2">
+                                                <label asp-for="CompanyName" class="form-label col-form-label-sm">Company Name</label>
+                                                <input asp-for="CompanyName" class="form-control form-control-sm" />
+                                                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group mb-2">
+                                                <label asp-for="CompanyRegistrationNumber" class="form-label col-form-label-sm">Company Registration Number</label>
+                                                <input asp-for="CompanyRegistrationNumber" class="form-control form-control-sm" />
+                                                <span asp-validation-for="CompanyRegistrationNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row jobSeekerFields">
+                                        <div class="col-sm-6">
+                                            <div class="form-group mb-2">
+                                                <label asp-for="ResumeFile" class="form-label col-form-label-sm">Resume</label>
+                                            <input name="ResumeFile" asp-for="ResumeFile" type="file" class="form-control form-control-sm" />
+                                                <span asp-validation-for="ResumeFile" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group mb-2">
+                                                <label asp-for="ProfilePicture" class="form-label col-form-label-sm">Profile Picture</label>
+                                            <input asp-for="ProfilePicture" name="ProfilePicture" type="file" class="form-control form-control-sm" />
+                                                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>  
+
+                                <div class="row jobSeekerFields">
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="Qualification" class="form-label col-form-label-sm">Qualification</label>
+                                            <input asp-for="Qualification" class="form-control form-control-sm" />
+                                            <span asp-validation-for="Qualification" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="UniversityName" class="form-label col-form-label-sm">University Name</label>
+                                            <input asp-for="UniversityName" class="form-control form-control-sm" />
+                                            <span asp-validation-for="UniversityName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row jobSeekerFields">
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="Experience" class="form-label col-form-label-sm">Experience</label>
+                                            <select asp-for="Experience" class="form-select form-select-sm" aria-label="Default select">
+                                                <option selected disabled>Select One</option>
+                                                <option value="0">0</option>
+                                                <option value="1+">1+</option>
+                                                <option value="2+">2+</option>
+                                                <option value="3+">3+</option>
+                                                <option value="4+">4+</option>
+                                            </select>
+                                            <span asp-validation-for="Experience" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group mb-2">
+                                            <label asp-for="Availability" class="form-label col-form-label-sm">Availability</label>
+                                            <select asp-for="Availability" class="form-select form-select-sm" aria-label="Default select">
+                                                <option selected disabled>Select One</option>
+                                                <option value="Immediately">Immediately</option>
+                                                <option value="1 Week Notice">1 Week Notice</option>
+                                                <option value="2 Weeks Notice">2 Weeks Notice</option>
+                                                <option value="3 Weeks Notice">3 Weeks Notice</option>
+                                                <option value="4 Weeks Notice">4 Weeks Notice</option>
+                                            </select>
+                                            <span asp-validation-for="Availability" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <button type="submit" class="btn btn-dark btn-sm w-100 mt-3">Register</button>
+
+                                <p>
+                                    Have an account already?
+                                    <a class="link-dark" asp-controller="Account" asp-action="Login">Login here</a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        var userTypeSelect = $("#userTypeSelect");
+        var jobSeekerFields = $(".jobSeekerFields");
+        var EmployerFields = $("#EmployerFields");
+
+        userTypeSelect.change(function () {
+            if (userTypeSelect.val() === "JobSeeker") {
+                jobSeekerFields.show();
+                EmployerFields.hide();
+            } else {
+                jobSeekerFields.hide();
+                EmployerFields.show();
+            }
+        });
+
+        // Initial load
+        if (userTypeSelect.val() === "JobSeeker") {
+            jobSeekerFields.show();
+            EmployerFields.hide();
+        } else {
+            jobSeekerFields.hide();
+            EmployerFields.show();
+        }
+    });
+</script>

@@ -1,0 +1,47 @@
+﻿@model List<ApplicationUser>
+@{
+    ViewData["Title"] = "Job Seekers Page";
+    Layout = "_Layout";
+}
+
+    <div class="row">
+    <div class="offset-sm-1 col-sm-10 mt-2">
+        <div class="card mt-4">
+            <div class="card-header">
+                Job Seekers
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Experiencee</th>
+                            <th>Availability</th>
+                            <th>UniversityName</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var jobSeeker in Model)
+                        {
+                            <tr>
+                                <td>@jobSeeker.FullName</td>
+                                <td>@jobSeeker.Email</td>
+                                <td>@jobSeeker.Experience</td>
+                                <td>@jobSeeker.Availability</td>
+                                <td>@jobSeeker.UniversityName</td>
+                                 <td>
+                    <a class="btn btn-sm btn-success" asp-controller="Home" asp-action="ViewJobSeeker" asp-route-id="@jobSeeker.Id">View Details</a>
+                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>  </div>
+
+
+

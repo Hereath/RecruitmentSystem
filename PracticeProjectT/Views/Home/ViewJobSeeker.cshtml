@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Edit Page";
+    Layout = "_Layout";
+}
+
+@model ApplicationUser
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="offset-sm-1 col-sm-10 mb-4">
+            <div class="card mb-3" style="border-radius: .5rem;">
+                <div class="row g-0">
+                    <div class="col-md-4 gradient-custom text-center text-white"
+                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                        <img src="~/@Model.ProfilePicture"
+                             alt="Profile Picture" class="img-fluid my-5" style="width: 80px;" />
+                        <h5 class="text-black">@Model.FullName</h5>
+                        <p class="text-black">@Model.Qualification</p>
+                        <i class="far fa-edit mb-5"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body p-4">
+                            <h6>Information</h6>
+                            <hr class="mt-0 mb-4">
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Full Name</h6>
+                                    <p class="text-muted">@Model.FullName</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Phone</h6>
+                                    <p class="text-muted">@Model.CellPhone</p>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Email</h6>
+                                    <p class="text-muted">@Model.Email</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Qualification</h6>
+                                    <p class="text-muted">@Model.Qualification</p>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>University Name</h6>
+                                    <p class="text-muted">@Model.UniversityName</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>Experience</h6>
+                                    <p class="text-muted">@Model.Experience</p>
+                                </div>
+                            </div>
+
+                            <div class="row pt-1">
+                                <div class="col-6 mb-3">
+                                    <h6>Availability</h6>
+                                    <p class="text-muted">@Model.Availability</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h6>User</h6>
+                                    <p class="text-muted">Job Seeker</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-start">
+                                <a asp-controller="Home" asp-action="DownloadResume" asp-route-id="@Model.Id" class="btn btn-sm btn-warning"><i class="fa-solid fa-download"></i> Download Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
